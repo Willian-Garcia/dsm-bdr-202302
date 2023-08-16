@@ -1,3 +1,4 @@
+drop database IF EXISTS bd_sistema_bancario;
 create database bd_sistema_bancario;
 \c bd_sistema_bancario;
 create table agencia(agencia varchar);
@@ -8,8 +9,8 @@ create table telefone(telefone integer);
 create table cliente(NOME_CLIENTE varchar(50), CIDADE_CLIENTE varchar(50), ENDERECO_CLIENTE varchar(50));
 create table conta(NUMERO_CONTA integer, NOME_AGENCIA varchar(15), SALDO real);
 create table emprestimo(NUMERO_EMPRESTIMO integer, NOME_AGENCIA varchar(15), VALOR real);
-create table agencia(NOME_AGENCIA varchar(15), CIDADE_AGENCIA varchar(30), DEPOSITOS integer);
 drop table agencia;
+create table agencia(NOME_AGENCIA varchar(15), CIDADE_AGENCIA varchar(30), DEPOSITOS integer);
 drop table codigo;
 drop table endereco;
 drop table nome;
@@ -24,6 +25,10 @@ ALTER TABLE emprestimo rename to tbl_emprestimo;
 ALTER TABLE conta rename to tbl_conta;
 ALTER TABLE agencia rename to tbl_agencia;
 ALTER TABLE tbl_agencia RENAME COLUMN cidade_agencia TO endereco_agencia;
+create schema willian;
+\dn
+show search_path;
+set search_path=willian;
 
 
 
