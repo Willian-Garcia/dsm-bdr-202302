@@ -66,9 +66,7 @@ SELECT n.nome, t.titulo
 FROM tbl_cliente n
 LEFT JOIN tbl_emprestimo e ON n.codigo_cliente = e.codigo_cliente 
 LEFT JOIN tbl_livros l ON e.codigo_livro = l.cod_livro 
-LEFT JOIN tbl_titulo t ON l.codigo_titulo = t.codigo_titulo 
-WHERE l.status = 'ALUGADO' OR l.status IS NULL;
-
+LEFT JOIN tbl_titulo t ON l.codigo_titulo = t.codigo_titulo;
 
 --Retorne o nome, titulo do livro e o status do esmprestimo do livro alugado pela Ana Oliveira
 SELECT n.nome, t.titulo, l.status
